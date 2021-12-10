@@ -7,13 +7,15 @@ import { renderWithProviders } from '../test/test-utils';
 
 describe('Homepage', () => {
   it('handles good response', async () => {
+    // show all projects
+    window.localStorage.setItem('showMyProjects', 'false');
+
     renderWithProviders(<Index />);
 
-    screen.getByText('Loading...');
+    screen.getByText('pages.Homepage.loading...');
 
     await screen.findByText('Taloyhtiö 30+');
     await screen.findByText('Kotikatu 32 As Oy');
-    await screen.findByText('Huolintatalo');
   });
 
   it('handles error response', async () => {
@@ -26,8 +28,8 @@ describe('Homepage', () => {
 
     renderWithProviders(<Index />);
 
-    screen.getByText('Loading...');
+    screen.getByText('pages.Homepage.loading...');
 
-    await screen.findByText('Error while loading projects');
+    await screen.findByText('pages.Homepage.errorLoadingProjects');
   });
 });

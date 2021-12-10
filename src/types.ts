@@ -96,6 +96,7 @@ export type Project = {
   publication_start_time: string;
   realty_id: string;
   roof_material: string;
+  sales_person: string;
   sanitation: string;
   shareholder_meeting_date: string;
   site_area: number;
